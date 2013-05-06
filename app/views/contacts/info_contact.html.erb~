@@ -1,0 +1,23 @@
+	<% if @contacts.photo < 1 %>
+			<h1><center> You don't have photo.</center></h1>
+
+		<% else %>
+
+		<% @contacts.each do |contact| %>
+
+		<tr>
+
+			<td> <%= link_to image_tag contact.photo(:medium) %> </td>		
+			<td> <%= contact.name %> </td> 
+			<td> <%= contact.email %> </td> 
+			<td> <%= contact.telephone %> </td> 
+			<td> <%= link_to '', edit_contact_path(contact), :class => 'icon-edit'%> </td> 
+			<td> <%= link_to '', destroy_contact_path(contact), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'icon-remove' %>
+
+
+
+		</tr>
+
+		<% end %>
+
+	</table>

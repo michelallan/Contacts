@@ -1,0 +1,9 @@
+	<h1> Import Contacts </h1>
+
+	<%= form_tag import_contact_path, :multipart => true do %>
+		<%= file_field_tag :file_name %>
+		<%= submit_tag "Upload", :disable_with => "Uploading...", :confirm => "Are you sure?", :class => "btn" %>
+	<% end %>
+
+
+

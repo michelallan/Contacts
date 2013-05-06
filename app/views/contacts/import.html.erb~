@@ -1,0 +1,9 @@
+	<h1> Import Contacts </h1>
+	<%= form_for @import_contacts do |f| %>
+		Email: <%=  f.text_field_tag "profile_contact[email]", "" %></br>
+		Password: <%=  f.password_field_tag "profile_contact[password]", "" %>
+		<%= f.hidden_field_tag :contact_from, @contact_from %>
+		<% f.submit_tag %>
+	<% end %>
+
+

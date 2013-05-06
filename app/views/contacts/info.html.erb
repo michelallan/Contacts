@@ -1,0 +1,21 @@
+	<div class="info">
+		<h1> Your info's </h1></br>
+			
+		<% if @contact.photo.present? %>
+			<%= link_to (image_tag @contact.photo(:medium)), info_contact_path(@contact) %></br></br>
+			<%= link_to '', edit_contact_path(@contact), :class => 'icon-edit'%> 
+    	<%= link_to '', destroy_contact_path(@contact), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'icon-remove' %>
+		
+		<% else %>
+			<% gravatar_id = Digest::MD5.hexdigest(@contact.email.downcase) %>
+    	<%= image_tag "http://gravatar.com/avatar/#{gravatar_id}.png?s=300&d=mm" %></br></br>
+    	<%= link_to '', edit_contact_path(@contact), :class => 'icon-edit'%> 
+    	<%= link_to '', destroy_contact_path(@contact), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'icon-remove' %>
+  	<% end %>
+		
+		<p></br><h2> <%= @contact.name %> </h2></p>
+		<p> Email: <%= @contact.email %> </p>
+		<p> Telephone: <%= @contact.telephone %> </p>
+
+	</div>
+

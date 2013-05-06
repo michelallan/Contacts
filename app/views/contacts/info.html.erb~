@@ -1,0 +1,15 @@
+	<div class="info">
+		<h1> Your info's </h1></br>
+			
+		<% if @contact.photo? %>
+			<p> <%= image_tag @contact.photo(:medium) %> </p>
+		<% else %>
+			<%= link_to 'Add photo', edit_contact_path(@contact) %>
+		<% end %>
+		
+		<p><h2> <%= @contact.name %> </h2></p>
+		<p> Email: <%= @contact.email %> </p>
+		<p> Telephone: <%= @contact.telephone %> </p>
+
+	</div>
+
